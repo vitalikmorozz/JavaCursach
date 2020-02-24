@@ -1,7 +1,5 @@
 package edu.stas.cursach.service.group.impls;
 
-import edu.stas.cursach.dao.group.impls.GroupDaoImplFake;
-import edu.stas.cursach.dao.group.interfaces.IGroupDao;
 import edu.stas.cursach.dao.repository.GroupRepository;
 import edu.stas.cursach.model.Group;
 import edu.stas.cursach.service.group.interfaces.IGroupService;
@@ -14,16 +12,11 @@ import java.util.List;
 @Service
 public class GroupServiceImpl implements IGroupService {
     @Autowired
-    GroupDaoImplFake dao;
-
-    @Autowired
     GroupRepository repository;
 
     @PostConstruct
     void init(){
-        List<Group> list = dao.getAll();
 
-//        repository.saveAll(list);
     }
 
     @Override
