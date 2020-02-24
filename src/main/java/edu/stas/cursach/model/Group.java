@@ -1,8 +1,13 @@
 package edu.stas.cursach.model;
 
+import org.springframework.data.annotation.Id;
+import org.springframework.data.mongodb.core.mapping.Document;
+
 import java.time.LocalDateTime;
 
+@Document
 public class Group {
+    @Id
     private String id;
     private String name;
     private String description;

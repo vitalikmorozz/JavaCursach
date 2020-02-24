@@ -1,4 +1,4 @@
-package edu.stas.cursach.controller.web;
+package edu.stas.cursach.controller.api;
 
 import edu.stas.cursach.model.Group;
 import edu.stas.cursach.service.group.impls.GroupServiceImpl;
@@ -14,7 +14,7 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/api/group")
-public class GroupController {
+public class GroupAPIController {
     @Autowired
     GroupServiceImpl service;
 

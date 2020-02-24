@@ -14,6 +14,8 @@ public class DataSet {
             new Group("1", "243", "description",
                     LocalDateTime.now(), LocalDateTime.now()),
             new Group("2", "243sk", "description",
+                    LocalDateTime.now(), LocalDateTime.now()),
+            new Group("3", "111", "Hello world",
                     LocalDateTime.now(), LocalDateTime.now())
     ));
 
