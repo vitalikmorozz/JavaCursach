@@ -16,9 +16,6 @@ public class GroupServiceImpl implements IGroupService {
     @Autowired
     GroupDaoImplFake dao;
 
-    @Autowired
-    GroupRepository repository;
-
     @PostConstruct
     void init(){
         List<Group> list = dao.getAll();
@@ -33,12 +30,13 @@ public class GroupServiceImpl implements IGroupService {
 
     @Override
     public Group get(String id) {
-        return null;
+        return dao.getAll().stream().filter(item -> item.getId().equals(id))
+                .findFirst().orElse(null);
     }
 
     @Override
     public List<Group> getAll() {
-        return repository.findAll();
+        return dao.getAll();
     }
 
     @Override
@@ -48,7 +46,8 @@ public class GroupServiceImpl implements IGroupService {
 
     @Override
     public Group delete(String id) {
-        repository.deleteById(id);
-        return repository.findById(id).orElse(null);
+        Group group = this.get(id);
+        dao.getAll().remove(group);
+        return group;
     }
 }

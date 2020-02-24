@@ -18,7 +18,8 @@ public class GroupDaoImplFake implements IGroupDao {
 
     @Override
     public Group save(Group group) {
-        return null;
+         dataSet.getGroups().add(group);
+         return group;
     }
 
     @Override
