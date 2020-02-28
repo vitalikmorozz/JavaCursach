@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.PostConstruct;
+import java.time.LocalDateTime;
 import java.util.List;
 
 @Service
@@ -15,18 +16,18 @@ public class GroupServiceImpl implements IGroupService {
     GroupRepository repository;
 
     @PostConstruct
-    void init(){
-
-    }
+    void init(){}
 
     @Override
     public Group save(Group group) {
-        return null;
+        group.setDateCreated(LocalDateTime.now());
+        group.setDateModified(LocalDateTime.now());
+        return repository.save(group);
     }
 
     @Override
     public Group get(String id) {
-        return null;
+        return repository.findById(id).orElse(null);
     }
 
     @Override
@@ -36,12 +37,14 @@ public class GroupServiceImpl implements IGroupService {
 
     @Override
     public Group edit(Group group) {
-        return null;
+        group.setDateModified(LocalDateTime.now());
+        return repository.save(group);
     }
 
     @Override
     public Group delete(String id) {
+        Group group = repository.findById(id).orElse(null);
         repository.deleteById(id);
-        return repository.findById(id).orElse(null);
+        return group;
     }
 }
