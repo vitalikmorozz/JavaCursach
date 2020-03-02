@@ -24,6 +24,9 @@ public class Group {
         this.dateModified = dateModified;
     }
 
+    public Group() {
+    }
+
     public String getId() {
         return id;
     }

@@ -23,10 +23,11 @@
             <td>${group.name}</td>
             <td>${group.description}</td>
             <td><a href="delete/${group.id}"><button>Delete</button></a></td>
-            <td><button>Edit</button></td>
+            <td><a href="edit/${group.id}"><button>Edit</button></a></td>
         </tr>
         </#list>
     </table>
+    <a href="create"><button>Create</button></a>
 </div>
 
 </body>
