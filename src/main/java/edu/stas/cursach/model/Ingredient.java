@@ -4,7 +4,7 @@ import org.springframework.data.annotation.Id;
 
 import java.time.LocalDateTime;
 
-public class Ingredients {
+public class Ingredient {
     @Id
     private String id;
     private String name;
@@ -16,7 +16,7 @@ public class Ingredients {
     private Integer amount;
     private Integer minimumAmount;
 
-    public Ingredients(String id, String name, String description, LocalDateTime dateCreated, LocalDateTime dateModified, Double price, Integer amount, Integer minimumAmount) {
+    public Ingredient(String id, String name, String description, LocalDateTime dateCreated, LocalDateTime dateModified, Double price, Integer amount, Integer minimumAmount) {
         this.id = id;
         this.name = name;
         this.description = description;
@@ -27,7 +27,7 @@ public class Ingredients {
         this.minimumAmount = minimumAmount;
     }
 
-    public Ingredients() {
+    public Ingredient() {
     }
 
     public String getId() {
