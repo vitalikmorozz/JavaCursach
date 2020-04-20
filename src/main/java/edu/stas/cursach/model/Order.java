@@ -7,31 +7,27 @@ import java.time.LocalDateTime;
 public class Order {
     @Id
     private String id;
-    private String name;
-    private String description;
     private LocalDateTime dateCreated;
     private LocalDateTime dateModified;
 
-    private String doctorId;
-    private String medsId;
-    private String clientId;
-    private Integer amount;
-    private Boolean done;
-
-    public Order(String id, String name, String description, LocalDateTime dateCreated, LocalDateTime dateModified, String doctorId, String medsId, String clientId, Integer amount, Boolean done) {
-        this.id = id;
-        this.name = name;
-        this.description = description;
-        this.dateCreated = dateCreated;
-        this.dateModified = dateModified;
-        this.doctorId = doctorId;
-        this.medsId = medsId;
-        this.clientId = clientId;
-        this.amount = amount;
-        this.done = done;
-    }
+    private String recipeId;
+    private Boolean isAllIngredientsAvailable;
+    private Boolean isReady;
+    private Boolean isReceived;
+    private LocalDateTime issueDate;
 
     public Order() {
+    }
+
+    public Order(String id, LocalDateTime dateCreated, LocalDateTime dateModified, String recipeId, Boolean isAllIngredientsAvailable, Boolean isReady, Boolean isReceived, LocalDateTime issueDate) {
+        this.id = id;
+        this.dateCreated = dateCreated;
+        this.dateModified = dateModified;
+        this.recipeId = recipeId;
+        this.isAllIngredientsAvailable = isAllIngredientsAvailable;
+        this.isReady = isReady;
+        this.isReceived = isReceived;
+        this.issueDate = issueDate;
     }
 
     public String getId() {
@@ -40,22 +36,6 @@ public class Order {
 
     public void setId(String id) {
         this.id = id;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public String getDescription() {
-        return description;
-    }
-
-    public void setDescription(String description) {
-        this.description = description;
     }
 
     public LocalDateTime getDateCreated() {
@@ -74,59 +54,57 @@ public class Order {
         this.dateModified = dateModified;
     }
 
-    public String getDoctorId() {
-        return doctorId;
+    public String getRecipeId() {
+        return recipeId;
     }
 
-    public void setDoctorId(String doctorId) {
-        this.doctorId = doctorId;
+    public void setRecipeId(String recipeId) {
+        this.recipeId = recipeId;
     }
 
-    public String getMedsId() {
-        return medsId;
+    public Boolean getAllIngredientsAvailable() {
+        return isAllIngredientsAvailable;
     }
 
-    public void setMedsId(String medsId) {
-        this.medsId = medsId;
+    public void setAllIngredientsAvailable(Boolean allIngredientsAvailable) {
+        isAllIngredientsAvailable = allIngredientsAvailable;
     }
 
-    public String getClientId() {
-        return clientId;
+    public Boolean getReady() {
+        return isReady;
     }
 
-    public void setClientId(String clientId) {
-        this.clientId = clientId;
+    public void setReady(Boolean ready) {
+        isReady = ready;
     }
 
-    public Integer getAmount() {
-        return amount;
+    public Boolean getReceived() {
+        return isReceived;
     }
 
-    public void setAmount(Integer amount) {
-        this.amount = amount;
+    public void setReceived(Boolean received) {
+        isReceived = received;
     }
 
-    public Boolean getDone() {
-        return done;
+    public LocalDateTime getIssueDate() {
+        return issueDate;
     }
 
-    public void setDone(Boolean done) {
-        this.done = done;
+    public void setIssueDate(LocalDateTime issueDate) {
+        this.issueDate = issueDate;
     }
 
     @Override
     public String toString() {
         return "Order{" +
                 "id='" + id + '\'' +
-                ", name='" + name + '\'' +
-                ", description='" + description + '\'' +
                 ", dateCreated=" + dateCreated +
                 ", dateModified=" + dateModified +
-                ", doctorId='" + doctorId + '\'' +
-                ", medsId='" + medsId + '\'' +
-                ", clientId='" + clientId + '\'' +
-                ", amount=" + amount +
-                ", done=" + done +
+                ", recipeId='" + recipeId + '\'' +
+                ", isAllIngredientsAvailable=" + isAllIngredientsAvailable +
+                ", isReady=" + isReady +
+                ", isReceived=" + isReceived +
+                ", issueDate=" + issueDate +
                 '}';
     }
 }

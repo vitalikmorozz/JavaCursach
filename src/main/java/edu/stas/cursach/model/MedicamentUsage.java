@@ -4,23 +4,24 @@ import org.springframework.data.annotation.Id;
 
 import java.time.LocalDateTime;
 
-public class MedsType {
+public class MedicamentUsage {
     @Id
     private String id;
-    private String name;
-    private String description;
     private LocalDateTime dateCreated;
     private LocalDateTime dateModified;
 
-    public MedsType(String id, String name, String description, LocalDateTime dateCreated, LocalDateTime dateModified) {
-        this.id = id;
-        this.name = name;
-        this.description = description;
-        this.dateCreated = dateCreated;
-        this.dateModified = dateModified;
+    private String name;
+    private String description;
+
+    public MedicamentUsage() {
     }
 
-    public MedsType() {
+    public MedicamentUsage(String id, LocalDateTime dateCreated, LocalDateTime dateModified, String name, String description) {
+        this.id = id;
+        this.dateCreated = dateCreated;
+        this.dateModified = dateModified;
+        this.name = name;
+        this.description = description;
     }
 
     public String getId() {
@@ -29,22 +30,6 @@ public class MedsType {
 
     public void setId(String id) {
         this.id = id;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public String getDescription() {
-        return description;
-    }
-
-    public void setDescription(String description) {
-        this.description = description;
     }
 
     public LocalDateTime getDateCreated() {
@@ -63,14 +48,30 @@ public class MedsType {
         this.dateModified = dateModified;
     }
 
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
+    }
+
     @Override
     public String toString() {
-        return "MedsType{" +
+        return "MedicamentUsage{" +
                 "id='" + id + '\'' +
-                ", name='" + name + '\'' +
-                ", description='" + description + '\'' +
                 ", dateCreated=" + dateCreated +
                 ", dateModified=" + dateModified +
+                ", name='" + name + '\'' +
+                ", description='" + description + '\'' +
                 '}';
     }
 }

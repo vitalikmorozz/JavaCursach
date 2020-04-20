@@ -7,25 +7,21 @@ import java.time.LocalDateTime;
 public class OrderArchive {
     @Id
     private String id;
-    private String name;
-    private String description;
     private LocalDateTime dateCreated;
     private LocalDateTime dateModified;
 
     private String orderId;
-    private LocalDateTime issueDate;
+    private LocalDateTime receiveDate;
 
-    public OrderArchive(String id, String name, String description, LocalDateTime dateCreated, LocalDateTime dateModified, String orderId, LocalDateTime issueDate) {
+    public OrderArchive() {
+    }
+
+    public OrderArchive(String id, LocalDateTime dateCreated, LocalDateTime dateModified, String orderId, LocalDateTime receiveDate) {
         this.id = id;
-        this.name = name;
-        this.description = description;
         this.dateCreated = dateCreated;
         this.dateModified = dateModified;
         this.orderId = orderId;
-        this.issueDate = issueDate;
-    }
-
-    public OrderArchive() {
+        this.receiveDate = receiveDate;
     }
 
     public String getId() {
@@ -34,22 +30,6 @@ public class OrderArchive {
 
     public void setId(String id) {
         this.id = id;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public String getDescription() {
-        return description;
-    }
-
-    public void setDescription(String description) {
-        this.description = description;
     }
 
     public LocalDateTime getDateCreated() {
@@ -76,24 +56,22 @@ public class OrderArchive {
         this.orderId = orderId;
     }
 
-    public LocalDateTime getIssueDate() {
-        return issueDate;
+    public LocalDateTime getReceiveDate() {
+        return receiveDate;
     }
 
-    public void setIssueDate(LocalDateTime issueDate) {
-        this.issueDate = issueDate;
+    public void setReceiveDate(LocalDateTime receiveDate) {
+        this.receiveDate = receiveDate;
     }
 
     @Override
     public String toString() {
         return "OrderArchive{" +
                 "id='" + id + '\'' +
-                ", name='" + name + '\'' +
-                ", description='" + description + '\'' +
                 ", dateCreated=" + dateCreated +
                 ", dateModified=" + dateModified +
                 ", orderId='" + orderId + '\'' +
-                ", issueDate=" + issueDate +
+                ", receiveDate=" + receiveDate +
                 '}';
     }
 }

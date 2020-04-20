@@ -7,23 +7,21 @@ import java.time.LocalDateTime;
 public class Doctor {
     @Id
     private String id;
-    private String name;
-    private String description;
     private LocalDateTime dateCreated;
     private LocalDateTime dateModified;
 
+    private String name;
     private String position;
 
-    public Doctor(String id, String name, String description, LocalDateTime dateCreated, LocalDateTime dateModified, String position) {
-        this.id = id;
-        this.name = name;
-        this.description = description;
-        this.dateCreated = dateCreated;
-        this.dateModified = dateModified;
-        this.position = position;
+    public Doctor() {
     }
 
-    public Doctor() {
+    public Doctor(String id, LocalDateTime dateCreated, LocalDateTime dateModified, String name, String position) {
+        this.id = id;
+        this.dateCreated = dateCreated;
+        this.dateModified = dateModified;
+        this.name = name;
+        this.position = position;
     }
 
     public String getId() {
@@ -32,22 +30,6 @@ public class Doctor {
 
     public void setId(String id) {
         this.id = id;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public String getDescription() {
-        return description;
-    }
-
-    public void setDescription(String description) {
-        this.description = description;
     }
 
     public LocalDateTime getDateCreated() {
@@ -66,6 +48,14 @@ public class Doctor {
         this.dateModified = dateModified;
     }
 
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
     public String getPosition() {
         return position;
     }
@@ -78,10 +68,9 @@ public class Doctor {
     public String toString() {
         return "Doctor{" +
                 "id='" + id + '\'' +
-                ", name='" + name + '\'' +
-                ", description='" + description + '\'' +
                 ", dateCreated=" + dateCreated +
                 ", dateModified=" + dateModified +
+                ", name='" + name + '\'' +
                 ", position='" + position + '\'' +
                 '}';
     }

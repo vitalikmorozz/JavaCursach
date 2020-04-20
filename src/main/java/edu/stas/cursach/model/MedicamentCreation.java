@@ -4,28 +4,28 @@ import org.springframework.data.annotation.Id;
 
 import java.time.LocalDateTime;
 
-public class Client {
+public class MedicamentCreation {
     @Id
     private String id;
     private LocalDateTime dateCreated;
     private LocalDateTime dateModified;
 
     private String name;
-    private int age;
-    private String address;
-    private String phone;
+    private String creationDescription;
+    private int ingredientAmount;
+    private String ingredientId;
 
-    public Client() {
+    public MedicamentCreation() {
     }
 
-    public Client(String id, LocalDateTime dateCreated, LocalDateTime dateModified, String name, int age, String address, String phone) {
+    public MedicamentCreation(String id, LocalDateTime dateCreated, LocalDateTime dateModified, String name, String creationDescription, int ingredientAmount, String ingredientId) {
         this.id = id;
         this.dateCreated = dateCreated;
         this.dateModified = dateModified;
         this.name = name;
-        this.age = age;
-        this.address = address;
-        this.phone = phone;
+        this.creationDescription = creationDescription;
+        this.ingredientAmount = ingredientAmount;
+        this.ingredientId = ingredientId;
     }
 
     public String getId() {
@@ -60,40 +60,40 @@ public class Client {
         this.name = name;
     }
 
-    public int getAge() {
-        return age;
+    public String getCreationDescription() {
+        return creationDescription;
     }
 
-    public void setAge(int age) {
-        this.age = age;
+    public void setCreationDescription(String creationDescription) {
+        this.creationDescription = creationDescription;
     }
 
-    public String getAddress() {
-        return address;
+    public int getIngredientAmount() {
+        return ingredientAmount;
     }
 
-    public void setAddress(String address) {
-        this.address = address;
+    public void setIngredientAmount(int ingredientAmount) {
+        this.ingredientAmount = ingredientAmount;
     }
 
-    public String getPhone() {
-        return phone;
+    public String getIngredientId() {
+        return ingredientId;
     }
 
-    public void setPhone(String phone) {
-        this.phone = phone;
+    public void setIngredientId(String ingredientId) {
+        this.ingredientId = ingredientId;
     }
 
     @Override
     public String toString() {
-        return "Client{" +
+        return "MedicamentCreation{" +
                 "id='" + id + '\'' +
                 ", dateCreated=" + dateCreated +
                 ", dateModified=" + dateModified +
                 ", name='" + name + '\'' +
-                ", age=" + age +
-                ", address='" + address + '\'' +
-                ", phone='" + phone + '\'' +
+                ", creationDescription='" + creationDescription + '\'' +
+                ", ingredientAmount=" + ingredientAmount +
+                ", ingredientId='" + ingredientId + '\'' +
                 '}';
     }
 }

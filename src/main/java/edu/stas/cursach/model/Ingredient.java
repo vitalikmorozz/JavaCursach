@@ -7,27 +7,25 @@ import java.time.LocalDateTime;
 public class Ingredient {
     @Id
     private String id;
-    private String name;
-    private String description;
     private LocalDateTime dateCreated;
     private LocalDateTime dateModified;
 
-    private Double price;
-    private Integer amount;
-    private Integer minimumAmount;
-
-    public Ingredient(String id, String name, String description, LocalDateTime dateCreated, LocalDateTime dateModified, Double price, Integer amount, Integer minimumAmount) {
-        this.id = id;
-        this.name = name;
-        this.description = description;
-        this.dateCreated = dateCreated;
-        this.dateModified = dateModified;
-        this.price = price;
-        this.amount = amount;
-        this.minimumAmount = minimumAmount;
-    }
+    private String name;
+    private int currentAmount;
+    private int price;
+    private LocalDateTime expirationDate;
 
     public Ingredient() {
+    }
+
+    public Ingredient(String id, LocalDateTime dateCreated, LocalDateTime dateModified, String name, int currentAmount, int price, LocalDateTime expirationDate) {
+        this.id = id;
+        this.dateCreated = dateCreated;
+        this.dateModified = dateModified;
+        this.name = name;
+        this.currentAmount = currentAmount;
+        this.price = price;
+        this.expirationDate = expirationDate;
     }
 
     public String getId() {
@@ -36,22 +34,6 @@ public class Ingredient {
 
     public void setId(String id) {
         this.id = id;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public String getDescription() {
-        return description;
-    }
-
-    public void setDescription(String description) {
-        this.description = description;
     }
 
     public LocalDateTime getDateCreated() {
@@ -70,41 +52,48 @@ public class Ingredient {
         this.dateModified = dateModified;
     }
 
-    public Double getPrice() {
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public int getCurrentAmount() {
+        return currentAmount;
+    }
+
+    public void setCurrentAmount(int currentAmount) {
+        this.currentAmount = currentAmount;
+    }
+
+    public int getPrice() {
         return price;
     }
 
-    public void setPrice(Double price) {
+    public void setPrice(int price) {
         this.price = price;
     }
 
-    public Integer getAmount() {
-        return amount;
+    public LocalDateTime getExpirationDate() {
+        return expirationDate;
     }
 
-    public void setAmount(Integer amount) {
-        this.amount = amount;
-    }
-
-    public Integer getMinimumAmount() {
-        return minimumAmount;
-    }
-
-    public void setMinimumAmount(Integer minimumAmount) {
-        this.minimumAmount = minimumAmount;
+    public void setExpirationDate(LocalDateTime expirationDate) {
+        this.expirationDate = expirationDate;
     }
 
     @Override
     public String toString() {
-        return "Ingredients{" +
+        return "Ingredient{" +
                 "id='" + id + '\'' +
-                ", name='" + name + '\'' +
-                ", description='" + description + '\'' +
                 ", dateCreated=" + dateCreated +
                 ", dateModified=" + dateModified +
+                ", name='" + name + '\'' +
+                ", currentAmount=" + currentAmount +
                 ", price=" + price +
-                ", amount=" + amount +
-                ", minimumAmount=" + minimumAmount +
+                ", expirationDate=" + expirationDate +
                 '}';
     }
 }
