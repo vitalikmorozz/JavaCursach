@@ -8,6 +8,8 @@ import org.springframework.stereotype.Service;
 
 import javax.annotation.PostConstruct;
 import java.time.LocalDateTime;
+import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 @Service
@@ -16,7 +18,15 @@ public class OrderServiceImpl implements IOrderService {
     OrderRepository repository;
     
     @PostConstruct
-    void init() {};
+    void init() {
+        List<Order> orders = new ArrayList<>(Arrays.asList(
+                new Order("1", LocalDateTime.now(), LocalDateTime.now(), "1", true, true, true),
+                new Order("2", LocalDateTime.now(), LocalDateTime.now(), "2", false, false, false),
+                new Order("3", LocalDateTime.now(), LocalDateTime.now(), "3", true, true, true)
+        ));
+
+        repository.saveAll(orders);
+    };
     
     @Override
     public Order save(Order order) {

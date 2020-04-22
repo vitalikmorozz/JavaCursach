@@ -8,6 +8,8 @@ import org.springframework.stereotype.Service;
 
 import javax.annotation.PostConstruct;
 import java.time.LocalDateTime;
+import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 @Service
@@ -16,7 +18,14 @@ public class ClientServiceImpl implements IClientService {
     ClientRepository repository;
 
     @PostConstruct
-    void init(){}
+    void init(){
+        List<Client> clients = new ArrayList<>(Arrays.asList(
+                new Client("1", LocalDateTime.now(), LocalDateTime.now(), "Ivan", 23, "Shevchenka str. 21", "+88005553535"),
+                new Client("2", LocalDateTime.now(), LocalDateTime.now(), "Peter", 23, "Verechenka str. 21", "+88002223232")
+        ));
+
+        repository.saveAll(clients);
+    }
 
     @Override
     public Client save(Client client) {

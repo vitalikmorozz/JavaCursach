@@ -8,6 +8,8 @@ import org.springframework.stereotype.Service;
 
 import javax.annotation.PostConstruct;
 import java.time.LocalDateTime;
+import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 @Service
@@ -16,7 +18,14 @@ public class IngredientServiceImpl implements IIngredientService {
     IngredientRepository repository;
     
     @PostConstruct
-    void init(){}
+    void init(){
+        List<Ingredient> ingredients = new ArrayList<>(Arrays.asList(
+                new Ingredient("1", LocalDateTime.now(), LocalDateTime.now(), "Water", 2, 50, LocalDateTime.now().plusYears(5)),
+                new Ingredient("2", LocalDateTime.now(), LocalDateTime.now(), "Oxygen", 2, 10, LocalDateTime.now().plusYears(10))
+        ));
+
+        repository.saveAll(ingredients);
+    }
     
     @Override
     public Ingredient save(Ingredient ingredient) {

@@ -14,12 +14,11 @@ public class Order {
     private Boolean isAllIngredientsAvailable;
     private Boolean isReady;
     private Boolean isReceived;
-    private LocalDateTime issueDate;
 
     public Order() {
     }
 
-    public Order(String id, LocalDateTime dateCreated, LocalDateTime dateModified, String recipeId, Boolean isAllIngredientsAvailable, Boolean isReady, Boolean isReceived, LocalDateTime issueDate) {
+    public Order(String id, LocalDateTime dateCreated, LocalDateTime dateModified, String recipeId, Boolean isAllIngredientsAvailable, Boolean isReady, Boolean isReceived) {
         this.id = id;
         this.dateCreated = dateCreated;
         this.dateModified = dateModified;
@@ -27,7 +26,6 @@ public class Order {
         this.isAllIngredientsAvailable = isAllIngredientsAvailable;
         this.isReady = isReady;
         this.isReceived = isReceived;
-        this.issueDate = issueDate;
     }
 
     public String getId() {
@@ -86,13 +84,6 @@ public class Order {
         isReceived = received;
     }
 
-    public LocalDateTime getIssueDate() {
-        return issueDate;
-    }
-
-    public void setIssueDate(LocalDateTime issueDate) {
-        this.issueDate = issueDate;
-    }
 
     @Override
     public String toString() {
@@ -104,7 +95,6 @@ public class Order {
                 ", isAllIngredientsAvailable=" + isAllIngredientsAvailable +
                 ", isReady=" + isReady +
                 ", isReceived=" + isReceived +
-                ", issueDate=" + issueDate +
                 '}';
     }
 }

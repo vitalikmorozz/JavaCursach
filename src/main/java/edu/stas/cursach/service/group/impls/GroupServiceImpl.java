@@ -8,6 +8,8 @@ import org.springframework.stereotype.Service;
 
 import javax.annotation.PostConstruct;
 import java.time.LocalDateTime;
+import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 @Service
@@ -16,7 +18,17 @@ public class GroupServiceImpl implements IGroupService {
     GroupRepository repository;
 
     @PostConstruct
-    void init(){}
+    void init(){
+        List<Group> groups = new ArrayList<>(Arrays.asList(
+                new Group("1", "243", "description",
+                        LocalDateTime.now(), LocalDateTime.now()),
+                new Group("2", "243sk", "description",
+                        LocalDateTime.now(), LocalDateTime.now()),
+                new Group("3", "111", "Hello world",
+                        LocalDateTime.now(), LocalDateTime.now())
+        ));
+        repository.saveAll(groups);
+    }
 
     @Override
     public Group save(Group group) {

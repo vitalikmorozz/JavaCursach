@@ -8,6 +8,8 @@ import org.springframework.stereotype.Service;
 
 import javax.annotation.PostConstruct;
 import java.time.LocalDateTime;
+import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 @Service
@@ -16,7 +18,13 @@ public class MedicamentCreationServiceImpl implements IMedicamentCreationService
     MedicamentCreationRepository repository;
     
     @PostConstruct
-    void init() {};
+    void init() {
+        List<MedicamentCreation> medicamentCreations = new ArrayList<>(Arrays.asList(
+                new MedicamentCreation("1", LocalDateTime.now(), LocalDateTime.now(), "Hydrogen", "Water + Electricity", 1, "1")
+        ));
+
+        repository.saveAll(medicamentCreations);
+    };
     
     @Override
     public MedicamentCreation save(MedicamentCreation medicamentCreation) {

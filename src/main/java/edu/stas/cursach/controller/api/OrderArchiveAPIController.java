@@ -1,45 +1,40 @@
 package edu.stas.cursach.controller.api;
 
-import edu.stas.cursach.model.Group;
-import edu.stas.cursach.service.group.impls.GroupServiceImpl;
+import edu.stas.cursach.model.OrderArchive;
+import edu.stas.cursach.service.orderArchive.impls.OrderArchiveServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
-import java.time.LocalDate;
-import java.time.LocalDateTime;
-import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 
 @RestController
-@RequestMapping("/api/group")
-public class GroupAPIController {
+@RequestMapping("/api/orderArchive")
+public class OrderArchiveAPIController {
     @Autowired
-    GroupServiceImpl service;
+    OrderArchiveServiceImpl service;
 
     @RequestMapping(value = "/get/list", method = RequestMethod.GET)
-    List<Group> getAll() {
+    List<OrderArchive> getAll() {
         return service.getAll();
     }
 
     @RequestMapping(value = "/get/{id}", method = RequestMethod.GET)
-    Group getById(@PathVariable("id") String id) {
+    OrderArchive getById(@PathVariable("id") String id) {
         return service.get(id);
     }
 
     @RequestMapping(value = "/create", method = RequestMethod.POST)
-    Group create(@RequestBody Group group) {
-        return service.save(group);
+    OrderArchive create(@RequestBody OrderArchive orderArchive) {
+        return service.save(orderArchive);
     }
 
     @RequestMapping(value = "/edit", method = RequestMethod.POST)
-    Group edit(@RequestBody Group group) {
-        return service.save(group);
+    OrderArchive edit(@RequestBody OrderArchive orderArchive) {
+        return service.save(orderArchive);
     }
 
     @RequestMapping(value = "/delete/{id}", method = RequestMethod.POST)
-    Group delete(@PathVariable("id") String id) {
+    OrderArchive delete(@PathVariable("id") String id) {
         return service.delete(id);
     }
 }

@@ -8,6 +8,8 @@ import org.springframework.stereotype.Service;
 
 import javax.annotation.PostConstruct;
 import java.time.LocalDateTime;
+import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 @Service
@@ -16,7 +18,15 @@ public class DoctorServiceImpl implements IDoctorService {
     DoctorRepository repository;
 
     @PostConstruct
-    void init(){};
+    void init(){
+        List<Doctor> doctors = new ArrayList<>(Arrays.asList(
+                new Doctor("1", LocalDateTime.now(), LocalDateTime.now(), "Mark", "Doctor"),
+                new Doctor("2", LocalDateTime.now(), LocalDateTime.now(), "Peter", "Doctor"),
+                new Doctor("3", LocalDateTime.now(), LocalDateTime.now(), "Jane", "Nurse")
+        ));
+
+        repository.saveAll(doctors);
+    };
 
     @Override
     public Doctor save(Doctor doctor) {
