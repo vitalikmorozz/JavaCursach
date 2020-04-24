@@ -9,7 +9,8 @@ import java.util.List;
 
 public interface ClientRepository extends MongoRepository<Client, String> {
     List<Client> findClientsByName(String name);
-    List<Client> findClientsByAge(int age);
-    List<Client> findClientsByAddressIsLike(String address);
-    List<Client> findClientsByPhoneIsLike(String phone);
+//    List<Client> findClientsByNameNear(String name);
+//    List<Client> findClientsByNameNear(String name);
+//    List<Client> findClientsByNameNear(String name);
+
 }
