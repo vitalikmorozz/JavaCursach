@@ -11,6 +11,7 @@ import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Date;
 import java.util.List;
 
 @Service
@@ -21,7 +22,7 @@ public class MedicamentServiceImpl implements IMedicamentService {
     @PostConstruct
     void init(){
         List<Medicament> medicaments = new ArrayList<>(Arrays.asList(
-                new Medicament("1", LocalDateTime.now(), LocalDateTime.now(), "Noradrenaline", "Some text", 25, 5, 1, LocalDateTime.now().plusMonths(6), "1", "2", "1")
+                new Medicament("1", LocalDateTime.now(), LocalDateTime.now(), "Noradrenaline", "Some text", 25, 5, 1, LocalDate.now().minusDays(5), "1", "2", "1")
         ));
 
         repository.saveAll(medicaments);

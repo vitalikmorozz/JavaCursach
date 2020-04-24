@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.PostConstruct;
+import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -20,8 +21,8 @@ public class IngredientServiceImpl implements IIngredientService {
     @PostConstruct
     void init(){
         List<Ingredient> ingredients = new ArrayList<>(Arrays.asList(
-                new Ingredient("1", LocalDateTime.now(), LocalDateTime.now(), "Water", 2, 50, LocalDateTime.now().plusYears(5)),
-                new Ingredient("2", LocalDateTime.now(), LocalDateTime.now(), "Oxygen", 2, 10, LocalDateTime.now().plusYears(10))
+                new Ingredient("1", LocalDateTime.now(), LocalDateTime.now(), "Water", 2, 50, LocalDate.now().plusYears(5)),
+                new Ingredient("2", LocalDateTime.now(), LocalDateTime.now(), "Oxygen", 2, 10, LocalDate.now().plusYears(10))
         ));
 
         repository.saveAll(ingredients);

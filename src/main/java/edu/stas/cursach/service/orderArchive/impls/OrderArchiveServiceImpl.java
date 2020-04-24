@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.PostConstruct;
+import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -20,8 +21,8 @@ public class OrderArchiveServiceImpl implements IOrderArchiveService {
     @PostConstruct
     void init() {
         List<OrderArchive> orderArchives = new ArrayList<>(Arrays.asList(
-                new OrderArchive("1", LocalDateTime.now(), LocalDateTime.now(), "1", LocalDateTime.now().minusDays(5)),
-                new OrderArchive("2", LocalDateTime.now(), LocalDateTime.now(), "2", LocalDateTime.now().minusDays(15))
+                new OrderArchive("1", LocalDateTime.now(), LocalDateTime.now(), "1", LocalDate.now().minusDays(5)),
+                new OrderArchive("2", LocalDateTime.now(), LocalDateTime.now(), "2", LocalDate.now().minusDays(15))
         ));
 
         repository.saveAll(orderArchives);

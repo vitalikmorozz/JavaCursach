@@ -2,6 +2,7 @@ package edu.stas.cursach.model;
 
 import org.springframework.data.annotation.Id;
 
+import java.time.LocalDate;
 import java.time.LocalDateTime;
 
 public class OrderArchive {
@@ -11,12 +12,12 @@ public class OrderArchive {
     private LocalDateTime dateModified;
 
     private String orderId;
-    private LocalDateTime receiveDate;
+    private LocalDate receiveDate;
 
     public OrderArchive() {
     }
 
-    public OrderArchive(String id, LocalDateTime dateCreated, LocalDateTime dateModified, String orderId, LocalDateTime receiveDate) {
+    public OrderArchive(String id, LocalDateTime dateCreated, LocalDateTime dateModified, String orderId, LocalDate receiveDate) {
         this.id = id;
         this.dateCreated = dateCreated;
         this.dateModified = dateModified;
@@ -56,11 +57,11 @@ public class OrderArchive {
         this.orderId = orderId;
     }
 
-    public LocalDateTime getReceiveDate() {
+    public LocalDate getReceiveDate() {
         return receiveDate;
     }
 
-    public void setReceiveDate(LocalDateTime receiveDate) {
+    public void setReceiveDate(LocalDate receiveDate) {
         this.receiveDate = receiveDate;
     }
 

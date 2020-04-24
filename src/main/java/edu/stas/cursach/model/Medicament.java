@@ -2,6 +2,7 @@ package edu.stas.cursach.model;
 
 import org.springframework.data.annotation.Id;
 
+import java.time.LocalDate;
 import java.time.LocalDateTime;
 
 public class Medicament {
@@ -15,7 +16,7 @@ public class Medicament {
     private int price;
     private int currentAmount;
     private int minimalAmount;
-    private LocalDateTime expirationDate;
+    private LocalDate expirationDate;
     private String medicamentTypeId;
     private String medicamentUsageId;
     private String medicamentCreationId;
@@ -23,7 +24,7 @@ public class Medicament {
     public Medicament() {
     }
 
-    public Medicament(String id, LocalDateTime dateCreated, LocalDateTime dateModified, String name, String description, int price, int currentAmount, int minimalAmount, LocalDateTime expirationDate, String medicamentTypeId, String medicamentUsageId, String medicamentCreationId) {
+    public Medicament(String id, LocalDateTime dateCreated, LocalDateTime dateModified, String name, String description, int price, int currentAmount, int minimalAmount, LocalDate expirationDate, String medicamentTypeId, String medicamentUsageId, String medicamentCreationId) {
         this.id = id;
         this.dateCreated = dateCreated;
         this.dateModified = dateModified;
@@ -102,11 +103,11 @@ public class Medicament {
         this.minimalAmount = minimalAmount;
     }
 
-    public LocalDateTime getExpirationDate() {
+    public LocalDate getExpirationDate() {
         return expirationDate;
     }
 
-    public void setExpirationDate(LocalDateTime expirationDate) {
+    public void setExpirationDate(LocalDate expirationDate) {
         this.expirationDate = expirationDate;
     }
 

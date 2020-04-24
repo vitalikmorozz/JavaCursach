@@ -2,6 +2,7 @@ package edu.stas.cursach.model;
 
 import org.springframework.data.annotation.Id;
 
+import java.time.LocalDate;
 import java.time.LocalDateTime;
 
 public class Ingredient {
@@ -13,12 +14,12 @@ public class Ingredient {
     private String name;
     private int currentAmount;
     private int price;
-    private LocalDateTime expirationDate;
+    private LocalDate expirationDate;
 
     public Ingredient() {
     }
 
-    public Ingredient(String id, LocalDateTime dateCreated, LocalDateTime dateModified, String name, int currentAmount, int price, LocalDateTime expirationDate) {
+    public Ingredient(String id, LocalDateTime dateCreated, LocalDateTime dateModified, String name, int currentAmount, int price, LocalDate expirationDate) {
         this.id = id;
         this.dateCreated = dateCreated;
         this.dateModified = dateModified;
@@ -76,11 +77,11 @@ public class Ingredient {
         this.price = price;
     }
 
-    public LocalDateTime getExpirationDate() {
+    public LocalDate getExpirationDate() {
         return expirationDate;
     }
 
-    public void setExpirationDate(LocalDateTime expirationDate) {
+    public void setExpirationDate(LocalDate expirationDate) {
         this.expirationDate = expirationDate;
     }
 
