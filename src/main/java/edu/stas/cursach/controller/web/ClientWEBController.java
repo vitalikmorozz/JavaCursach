@@ -7,7 +7,9 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.Comparator;
 import java.util.List;
+import java.util.stream.Collectors;
 
 @Controller
 @RequestMapping("/web/client")
@@ -16,8 +18,19 @@ public class ClientWEBController {
     ClientServiceImpl service;
 
     @RequestMapping(value = "/list", method = RequestMethod.GET)
-    String getAll(Model model) {
-        model.addAttribute("clients", service.getAll());
+    String getAll(@RequestParam(required = false) String filter, @RequestParam(required = false) boolean sort, Model model) {
+        List<Client> list;
+
+        if(filter != null && !filter.isEmpty()) {
+            list = service.findByName(filter);
+        } else {
+            list = service.getAll();
+            filter = "";
+        }
+
+        model.addAttribute("clients", list);
+        model.addAttribute("filter", filter);
+        model.addAttribute("sort", sort);
         return "listPages/clientList";
     }
 

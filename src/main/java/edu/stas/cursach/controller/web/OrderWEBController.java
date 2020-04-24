@@ -7,10 +7,7 @@ import edu.stas.cursach.service.recipe.impls.RecipeServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 import java.util.stream.Collectors;
@@ -25,8 +22,19 @@ public class OrderWEBController {
     RecipeServiceImpl recipeService;
 
     @RequestMapping(value = "/list", method = RequestMethod.GET)
-    String getAll(Model model) {
-        model.addAttribute("orders", service.getAll());
+    String getAll(@RequestParam(required = false) String filter, @RequestParam(required = false) boolean sort, Model model) {
+        List<Order> list;
+
+        if(filter != null && !filter.isEmpty()) {
+            list = service.findByRecipeId(filter);
+        } else {
+            list = service.getAll();
+            filter = "";
+        }
+
+        model.addAttribute("orders", list);
+        model.addAttribute("filter", filter);
+        model.addAttribute("sort", sort);
         return "listPages/orderList";
     }
 

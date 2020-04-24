@@ -57,4 +57,8 @@ public class RecipeServiceImpl implements IRecipeService {
     public List<Recipe> getAll() {
         return repository.findAll();
     }
+
+    public List<Recipe> findByDoctorID(String id) {
+        return repository.findRecipesByDoctorId(id);
+    }
 }

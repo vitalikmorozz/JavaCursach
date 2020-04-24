@@ -5,10 +5,9 @@ import edu.stas.cursach.service.ingredient.impls.IngredientServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
 
 @Controller
 @RequestMapping("/web/ingredient")
@@ -17,8 +16,19 @@ public class IngredientWEBController {
     IngredientServiceImpl service;
 
     @RequestMapping(value = "/list", method = RequestMethod.GET)
-    String getAll(Model model) {
-        model.addAttribute("ingredients", service.getAll());
+    String getAll(@RequestParam(required = false) String filter, @RequestParam(required = false) boolean sort, Model model) {
+        List<Ingredient> list;
+
+        if(filter != null && !filter.isEmpty()) {
+            list = service.findByName(filter);
+        } else {
+            list = service.getAll();
+            filter = "";
+        }
+
+        model.addAttribute("ingredients", list);
+        model.addAttribute("filter", filter);
+        model.addAttribute("sort", sort);
         return "listPages/ingredientList";
     }
 

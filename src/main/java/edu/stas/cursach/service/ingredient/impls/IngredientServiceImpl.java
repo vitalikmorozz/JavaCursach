@@ -57,4 +57,8 @@ public class IngredientServiceImpl implements IIngredientService {
     public List<Ingredient> getAll() {
         return repository.findAll();
     }
+
+    public List<Ingredient> findByName(String name) {
+        return repository.findIngredientsByName(name);
+    }
 }

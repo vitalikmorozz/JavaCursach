@@ -57,4 +57,8 @@ public class OrderArchiveServiceImpl implements IOrderArchiveService {
     public List<OrderArchive> getAll() {
         return repository.findAll();
     }
+
+    public List<OrderArchive> findByRecipeId(String id) {
+        return repository.findOrderArchiveByOrderId(id);
+    }
 }

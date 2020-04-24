@@ -57,4 +57,8 @@ public class OrderServiceImpl implements IOrderService {
     public List<Order> getAll() {
         return repository.findAll();
     }
+
+    public List<Order> findByRecipeId(String id) {
+        return repository.findOrdersByRecipeId(id);
+    }
 }

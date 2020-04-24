@@ -57,4 +57,8 @@ public class MedicamentServiceImpl implements IMedicamentService {
     public List<Medicament> getAll() {
         return repository.findAll();
     }
+
+    public List<Medicament> findByName(String name) {
+        return repository.findMedicamentsByName(name);
+    }
 }

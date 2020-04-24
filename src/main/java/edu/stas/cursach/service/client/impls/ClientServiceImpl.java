@@ -3,8 +3,10 @@ package edu.stas.cursach.service.client.impls;
 import edu.stas.cursach.dao.repository.ClientRepository;
 import edu.stas.cursach.model.Client;
 import edu.stas.cursach.service.client.interfaces.IClientService;
+import jdk.nashorn.internal.runtime.regexp.joni.Regex;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import sun.misc.Regexp;
 
 import javax.annotation.PostConstruct;
 import java.time.LocalDateTime;
@@ -55,5 +57,9 @@ public class ClientServiceImpl implements IClientService {
     @Override
     public List<Client> getAll() {
         return repository.findAll();
+    }
+
+    public List<Client> findByName(String name) {
+        return repository.findClientsByName(name);
     }
 }

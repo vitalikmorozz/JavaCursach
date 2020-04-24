@@ -1,7 +1,7 @@
 <#import "/spring.ftl" as spring>
 <#import "../parts/common.ftl" as c>
 
-<@c.wrapperWithCreateButton>
+<@c.wrapper>
     <h1>Groups list</h1>
     <table class="table">
         <tr class="thead-dark">
@@ -19,4 +19,6 @@
         </tr>
         </#list>
     </table>
-</@c.wrapperWithCreateButton>
+    <a href="create"><button class="btn btn-primary">Create</button></a>
+
+</@c.wrapper>

@@ -55,4 +55,8 @@ public class MedicamentCreationServiceImpl implements IMedicamentCreationService
     public List<MedicamentCreation> getAll() {
         return repository.findAll();
     }
+
+    public List<MedicamentCreation> findByName(String name) {
+        return repository.findMedicamentCreationsByName(name);
+    }
 }

@@ -57,4 +57,8 @@ public class DoctorServiceImpl implements IDoctorService {
     public List<Doctor> getAll() {
         return repository.findAll();
     }
+
+    public List<Doctor> findByName(String name) {
+        return repository.findDoctorsByName(name);
+    }
 }
