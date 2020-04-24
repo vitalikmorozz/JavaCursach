@@ -21,7 +21,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
                 .roles("ADMIN", "USER")
                 .and()
                 .withUser("user")
-                .password(encoder.encode("qazwsxedc"))
+                .password(encoder.encode("user"))
                 .roles("USER");
     }
 
