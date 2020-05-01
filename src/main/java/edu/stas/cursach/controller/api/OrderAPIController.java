@@ -9,6 +9,7 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/api/order")
+@CrossOrigin(origins = "*", allowedHeaders = "*")
 public class OrderAPIController {
     @Autowired
     OrderServiceImpl service;

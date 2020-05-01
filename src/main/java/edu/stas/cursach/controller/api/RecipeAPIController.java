@@ -9,6 +9,7 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/api/recipe")
+@CrossOrigin(origins = "*", allowedHeaders = "*")
 public class RecipeAPIController {
     @Autowired
     RecipeServiceImpl service;

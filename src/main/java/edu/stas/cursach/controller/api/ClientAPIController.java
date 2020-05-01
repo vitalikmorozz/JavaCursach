@@ -9,6 +9,7 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/api/client")
+@CrossOrigin(origins = "*", allowedHeaders = "*")
 public class ClientAPIController {
     @Autowired
     ClientServiceImpl service;

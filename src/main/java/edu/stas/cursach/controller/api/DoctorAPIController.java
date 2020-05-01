@@ -9,6 +9,7 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/api/doctor")
+@CrossOrigin(origins = "*", allowedHeaders = "*")
 public class DoctorAPIController {
     @Autowired
     DoctorServiceImpl service;
